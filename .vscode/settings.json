@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "Rucio",
+        "chmod",
+        "globus",
+        "rucion",
+        "shutil"
+    ],
+    "python.linting.flake8Enabled": true
+}
