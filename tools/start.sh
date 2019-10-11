@@ -18,12 +18,13 @@ echo export GRID_VOMS=${!rucio_voms:=$rucio_voms} >> /var/spool/xrootd/.bashrc
 echo export GRID_PASSWORD=${!cert_pass:=$cert_pass} >> /var/spool/xrootd/.bashrc
 echo export RUCIO_ACCOUNT=${!rucio_username:=$rucio_username} >> /var/spool/xrootd/.bashrc
 
-cat /var/spool/xrootd/.bashrc
-
 sudo -u xrootd /bin/bash -c "source /var/spool/xrootd/.bashrc; python3 cert_manager.py" &
 
 # Give the system a chance to grab the first cert so we don't go into backoff mode.
 sleep 15
+
+# Make sure data is the right ownership
+chown -R xrootd:xrootd /data
 
 # Next, start the xcache stuff
 sudo -u xrootd /bin/bash -c ". /var/spool/xrootd/runme.sh"
