@@ -1,4 +1,4 @@
-FROM gordonwatts/rucion2n-for-xcache:1.0
+FROM gordonwatts/rucion2n-for-xcache:1.0.1
 
 RUN yum -y install python36 python36-pip wget
 
